@@ -17,7 +17,7 @@ books['large_thumbnail'] = np.where(
     'cover-not-found.jpg',
     books['large_thumbnail'])
 
-raw_documents = TextLoader('tagged_description.txt').load()
+raw_documents = TextLoader('../tagged_description.txt').load()
 text_splitter = CharacterTextSplitter(separator='\n', chunk_size=1000, chunk_overlap=0)
 documents = text_splitter.split_documents(raw_documents)
 db_books = Chroma.from_documents(documents, OpenAIEmbeddings())
