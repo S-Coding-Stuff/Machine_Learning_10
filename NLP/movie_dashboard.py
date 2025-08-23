@@ -23,13 +23,14 @@ db_movies = Chroma.from_documents(documents, OpenAIEmbeddings())
 
 def retrieve_semantic_recommendations(query,
                                       initial_top_k=50,
-                                      final_top_k=16,):
+                                      final_top_k=10,):
 
     recs = db_movies.similarity_search(query, k=initial_top_k)
     movies_list = [
-        int(rec.page_content.strip('"').split(' ', 1)[0]) for rec in recs]
+        int(rec.page_content.strip('"').split(' ', 1)[0]) for rec in recs
+    ]
 
-    movie_recs = movies[movies["movie_id"].isin(movies_list)].head(final_top_k)
+    movie_recs = movies.set_index('movie_id').loc[movies_list].reset_index()
 
     results = ""
     for _, row in movie_recs.iterrows():
@@ -40,6 +41,8 @@ with gr.Blocks() as demo:
     gr.Markdown('# Movie Recommendations System')
     query = gr.Textbox(label='Movie title, theme or idea')
     output = gr.Markdown()
+
+    gr.Markdown('## Recommendations')
     query.submit(fn=retrieve_semantic_recommendations, inputs=query, outputs=output)
 
 if __name__ == '__main__':
