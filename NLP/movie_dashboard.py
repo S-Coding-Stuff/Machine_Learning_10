@@ -7,42 +7,73 @@ from langchain.docstore.document import Document
 import numpy as np, pandas as pd
 from dotenv import load_dotenv
 import gradio as gr
+from rapidfuzz import process, fuzz
 
 load_dotenv()
 
 movies = pd.read_csv('movies_semantic.csv')
+movies['Plot'] = movies['Plot'].str.slice(0, 1000)
 
-documents = []
-with open('movies_semantic.txt', 'r', encoding='utf-8') as file:
-    for line in file:
-        line = line.strip()
-        if line:
-            documents.append(Document(page_content=line))
+documents = [Document(page_content=row['Plot'],
+                      metadata={
+                          'movie_id': row['movie_id'],
+                          'Title': row['Title'],
+                          'Release Year': row['Release Year'],
+                          'Genre': row['Genre']
+                      }
+                      )
+             for _, row in movies.iterrows()
+             ]
 
-db_movies = Chroma.from_documents(documents, OpenAIEmbeddings())
+# Simply loading embeddings each time rather than recreating each time
+db_movies = Chroma(embedding_function=OpenAIEmbeddings(), persist_directory='sem_movies')
+
+# Fuzzy match above 90% match threshold. Used to check titles are equal to query text
+def match_title(query, documents, threshold=85):
+    titles = [doc.metadata['Title'] for doc in documents]
+    match, score, index = process.extractOne(query, titles, scorer=fuzz.token_sort_ratio)
+
+    if score >= threshold:
+        return documents[index].metadata, score
+    return None, None
 
 def retrieve_semantic_recommendations(query,
-                                      initial_top_k=50,
-                                      final_top_k=10,):
+                                      top_k=10):
+    match, score = match_title(query,documents)
+    results = []
+    seen = set()
 
-    recs = db_movies.similarity_search(query, k=initial_top_k)
-    movies_list = [
-        int(rec.page_content.strip('"').split(' ', 1)[0]) for rec in recs
-    ]
+    if match:
+        if match['movie_id'] not in seen:
+            results.append(match)
+            seen.add(match['movie_id'])
 
-    movie_recs = movies.set_index('movie_id').loc[movies_list].reset_index()
+        recs = db_movies.similarity_search(match['Title'], k=top_k + 1)
 
-    results = ""
-    for _, row in movie_recs.iterrows():
-        results += f"**{row['Title']}** ({row['Release Year']}) \n{row['Plot']}\n\n"
-    return results
+        for doc in recs:
+            if doc.metadata['movie_id'] not in seen:
+                results.append(doc.metadata)
+                seen.add(doc.metadata['movie_id'])
+
+    else:
+        recs = db_movies.similarity_search(query, k=top_k)
+        for doc in recs:
+            if doc.metadata['movie_id'] not in seen:
+                results.append(doc.metadata)
+                seen.add(doc.metadata['movie_id'])
+
+    string_result = ""
+    for result in results:
+        string_result += f"**{result['Title']}** ({result['Release Year']}) \nGenres: {result['Genre']}\n\n"
+
+    return string_result
 
 with gr.Blocks() as demo:
     gr.Markdown('# Movie Recommendations System')
     query = gr.Textbox(label='Movie title, theme or idea')
-    output = gr.Markdown()
 
     gr.Markdown('## Recommendations')
+    output = gr.Markdown()
     query.submit(fn=retrieve_semantic_recommendations, inputs=query, outputs=output)
 
 if __name__ == '__main__':
