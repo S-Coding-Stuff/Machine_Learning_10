@@ -14,19 +14,22 @@ load_dotenv()
 movies = pd.read_csv('movies_semantic.csv')
 movies['Plot'] = movies['Plot'].str.slice(0, 1000)
 
-documents = [Document(page_content=row['Plot'],
-                      metadata={
-                          'movie_id': row['movie_id'],
-                          'Title': row['Title'],
-                          'Release Year': row['Release Year'],
-                          'Genre': row['Genre']
-                      }
-                      )
-             for _, row in movies.iterrows()
-             ]
+documents = [
+    Document(
+        page_content=row['Plot'],
+        metadata={
+            'movie_id': row['movie_id'],
+            'Title': row['Title'],
+            'Release Year': row['Release Year'],
+            'Genre': row['Genre']
+        }
+    )
+    for _, row in movies.iterrows()
+]
 
 # Simply loading embeddings each time rather than recreating each time
 db_movies = Chroma(embedding_function=OpenAIEmbeddings(), persist_directory='sem_movies')
+
 
 # Fuzzy match above 90% match threshold. Used to check titles are equal to query text
 def match_title(query, documents, threshold=85):
@@ -37,9 +40,10 @@ def match_title(query, documents, threshold=85):
         return documents[index].metadata, score
     return None, None
 
+
 def retrieve_semantic_recommendations(query,
                                       top_k=10):
-    match, score = match_title(query,documents)
+    match, score = match_title(query, documents)
     results = []
     seen = set()
 
@@ -64,9 +68,10 @@ def retrieve_semantic_recommendations(query,
 
     string_result = ""
     for result in results:
-        string_result += f"**{result['Title']}** ({result['Release Year']}) \nGenres: {result['Genre']}\n\n"
+        string_result += f"**{result['Title']}** ({result['Release Year']}) \n\nGenres: {result['Genre']}\n\n"
 
     return string_result
+
 
 with gr.Blocks() as demo:
     gr.Markdown('# Movie Recommendations System')
