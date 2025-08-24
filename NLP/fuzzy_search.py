@@ -17,10 +17,10 @@ def levenshtein(s1 : str, s2 : str):
 
     return d[m, n]
 
-from rapidfuzz import fuzz
+from rapidfuzz import fuzz, process
 
 string1 = 'Spiderman'
 string2 = 'Superman'
 
-print(fuzz.ratio(string1, string2))
-print(levenshtein(string1, string2))
+print(fuzz.ratio(string1, string2)) # Checks the similarity ration between the two strings
+print(levenshtein(string1, string2)) # Checks how many changes
