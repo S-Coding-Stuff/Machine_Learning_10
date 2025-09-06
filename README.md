@@ -40,5 +40,7 @@ Each folder contains Jupyter Notebooks containing short notes.
 
 ## Natural Language Processing
 
-### Book Recommendation System - Utilising Langchain and OpenAI API
-### Movie Recommendation System - Extending what I learned from Book Recommendation System
+### Book Recommendation System 
+- Utilising Langchain, OpenAI API and Gradio
+### Movie Recommendation System 
+- Extending what I learned from Book Recommendation System
