@@ -21,15 +21,25 @@ Each folder contains Jupyter Notebooks containing short notes.
 - **Project(s):** Mini Digits
 - **Purpose:** Understand distance metrics, visualise data, understand how neighbours 'vote'
 
-### Day 5 - Naive Bayes
+### Day 5 - Support Vector Machine
+- **Project(s):**
+- **Purpose:** Understand hyperplanes and how they're utilised in SVMs, visualise the margin and kernel trick
 
-### Day 6 - Support Vector Machine
+### Day 6 - Naive Bayes
+- **Project(s):**
+- **Purpose:**
 
 ### Day 7 - Clustering
+- **Project(s):**
+- **Purpose:**
 
 ### Day 8 - Dimensionality Reduction
+- **Project(s):**
+- **Purpose:**
 
 ### Day 9 - Neural Networks
+- **Project(s):**
+- **Purpose:**
 
 ### Day 10 - Gradient Boosting / XGBoosting
 
