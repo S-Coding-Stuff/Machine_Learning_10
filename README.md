@@ -18,6 +18,8 @@ Each folder contains Jupyter Notebooks containing short notes.
 - **Purpose:** See how bagging, pasting and feature randomness improves stability over single trees.
 
 ### Day 4 - K-Nearest Neighbour
+- **Project(s):** Mini Digits
+- **Purpose:** Understand distance metrics, visualise data, understand how neighbours 'vote'
 
 ### Day 5 - Naive Bayes
 
