@@ -5,15 +5,16 @@ Each folder contains Jupyter Notebooks containing short notes.
 
 ## 🛣️ Roadmap
 
-### Day 1 - Linear and Logistic Regression (03/05/2025)
+### Day 1 - Linear and Logistic Regression (03/09/2025)
  - **Project(s):** Auto Dataset Linear Regression, Titanic Logistic Regression, ISLP Boston Housing.
 - **Purpose:** Revisiting regression vs classification basics, loss functions, basics of data visualisation and preprocessing.
 
-### Day 2 - Decision Trees (04/05/2025)
+### Day 2 - Decision Trees (04/09/2025)
 - **Project(s):** Iris Classification, Pokemon Classification.
 - **Purpose:** Understand flowchart splits, Gini impurity, overfitting.
+!!Uploaded this part on 05/09/2025 to keep files together!!
 
-### Day 3 - Random Forests (05/05/2025)
+### Day 3 - Random Forests (05/09/2025)
 - **Project(s):** 
 - **Purpose:** See how bagging, pasting and feature randomness improves stability over single trees.
 
