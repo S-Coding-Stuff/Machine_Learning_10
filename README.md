@@ -12,6 +12,7 @@ Each folder contains Jupyter Notebooks containing short notes.
 ### Day 2 - Decision Trees (04/09/2025)
 - **Project(s):** Iris Classification, Pokemon Classification.
 - **Purpose:** Understand flowchart splits, Gini impurity, overfitting.
+
 !!Uploaded this part on 05/09/2025 to keep files together!!
 
 ### Day 3 - Random Forests (05/09/2025)
