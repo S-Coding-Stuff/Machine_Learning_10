@@ -5,43 +5,45 @@ Each folder contains Jupyter Notebooks containing short notes.
 
 ## 🛣️ Roadmap
 
-### Day 1 - Linear and Logistic Regression
+### Day 1 - Linear and Logistic Regression (03/05/2025)
  - **Project(s):** Auto Dataset Linear Regression, Titanic Logistic Regression, ISLP Boston Housing.
 - **Purpose:** Revisiting regression vs classification basics, loss functions, basics of data visualisation and preprocessing.
 
-### Day 2 - Decision Trees
+### Day 2 - Decision Trees (04/05/2025)
 - **Project(s):** Iris Classification, Pokemon Classification.
 - **Purpose:** Understand flowchart splits, Gini impurity, overfitting.
 
-### Day 3 - Random Forests
+### Day 3 - Random Forests (05/05/2025)
 - **Project(s):** 
 - **Purpose:** See how bagging, pasting and feature randomness improves stability over single trees.
 
-### Day 4 - K-Nearest Neighbour
+### Day 4 - K-Nearest Neighbour (06/09/2025)
 - **Project(s):** Mini Digits
 - **Purpose:** Understand distance metrics, visualise data, understand how neighbours 'vote'
 
-### Day 5 - Support Vector Machine
+### Day 5 - Support Vector Machine (07/09/2025)
 - **Project(s):**
 - **Purpose:** Understand hyperplanes and how they're utilised in SVMs, visualise the margin and kernel trick
 
-### Day 6 - Naive Bayes
+### Day 6 - Dimensionality Reduction (08/09/2025)
 - **Project(s):**
 - **Purpose:**
 
-### Day 7 - Clustering
+### Day 7 - Clustering (09/09/2025)
 - **Project(s):**
 - **Purpose:**
 
-### Day 8 - Dimensionality Reduction
+### Day 8 - ~~Dimensionality Reduction~~ (10/09/2025)
 - **Project(s):**
 - **Purpose:**
 
-### Day 9 - Neural Networks
+### Day 9 - Neural Networks (11/09/2025)
 - **Project(s):**
 - **Purpose:**
 
-### Day 10 - Gradient Boosting / XGBoosting
+### Day 10 - Gradient Boosting / XGBoosting (12/09/2025)
+- **Project(s):**
+- **Purpose:**
 
 ## 🎯 Why this structure?
 - **Breadth:** Cover the major ML families quickly.  
