@@ -1,6 +1,6 @@
 # 🧠 10 Days of Machine Learning - 10 Topics, 10 Mini Projects
 
-This repository is my personal **revision sprint** to quickly refresh core machine learning by building something small and concrete for each topic.
+This repository is my personal **revision sprint** to quickly refresh ideas on core machine learning by building something small and concrete for each topic.
 Each folder contains Jupyter Notebooks containing short notes.
 
 ## 🛣️ Roadmap
