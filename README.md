@@ -31,7 +31,7 @@ Each folder contains Jupyter Notebooks containing short notes.
 - **Project(s):** MNIST Dataset PCA, USArrest Dataset Visualisation
 - **Purpose:** Understand PCA intuition, different types of PCA
 
-### Day 7 - Clustering (09/09/2025)
+### Day 7 - Unsupervised Learning (09/09/2025)
 - **Project(s):**
 - **Purpose:** Learn K-Means Clustering, visualise clusters, extend to other algorithms
 
