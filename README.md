@@ -27,25 +27,17 @@ Each folder contains Jupyter Notebooks containing short notes.
 - **Project(s):**
 - **Purpose:** Understand hyperplanes and how they're utilised in SVMs, visualise the margin and kernel trick
 
-### Day 6 - Dimensionality Reduction (08/09/2025)
+### Day 6-7 - Dimensionality Reduction (08/09/2025)
 - **Project(s):** MNIST Dataset PCA, USArrest Dataset Visualisation
 - **Purpose:** Understand PCA intuition, different types of PCA
 
-### Day 7 - Unsupervised Learning (09/09/2025)
+### Day 8-9 - Unsupervised Learning (09/09/2025)
 - **Project(s):**
 - **Purpose:** Learn K-Means Clustering, visualise clusters, extend to other algorithms
 
-### Day 8 - Feature Engineering & Model Evaluation (10/09/2025)
+### Day 10 - Feature Engineering & Model Evaluation (10/09/2025)
 - **Project(s):**
 - **Purpose:** Compare models, introduce cross validation, understand scaling
-
-### Day 9 - Neural Networks (11/09/2025)
-- **Project(s):**
-- **Purpose:**
-
-### Day 10 - Gradient Boosting / XGBoosting (12/09/2025)
-- **Project(s):**
-- **Purpose:**
 
 ## 🎯 Why this structure?
 - **Breadth:** Cover the major ML families quickly.  
